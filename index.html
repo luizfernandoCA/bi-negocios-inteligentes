@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#123cc8" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-title" content="Negócios Inteligentes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="description" content="Negócios Inteligentes · Business Intelligence de investimentos públicos por município." />
+    <title>Negócios Inteligentes | BI de Investimentos</title>
+    <link rel="manifest" href="./manifest.webmanifest" />
+    <link rel="icon" type="image/svg+xml" href="./assets/app-icon.svg" />
+    <link rel="apple-touch-icon" href="./assets/app-icon.svg" />
+    <link rel="stylesheet" href="./styles.css?v=20260613-1" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <aside class="side-panel">
+        <div class="brand-card brand-card-logo" aria-label="Negócios Inteligentes">
+          <img src="./assets/ni-logo.svg" alt="Negócios Inteligentes" />
+        </div>
+
+        <section class="total-card">
+          <span class="eyebrow">Investimento estadual</span>
+          <strong id="stateTotal">R$ 0</strong>
+          <p id="stateSubtitle">52 municípios integrados ao GeoJSON.</p>
+        </section>
+
+        <section class="state-summary" id="stateSummary" aria-label="Panorama estadual"></section>
+
+        <section class="filter-card" aria-label="Filtros do mapa">
+          <button class="filter-toggle" id="filterToggle" type="button" aria-expanded="false">Filtros</button>
+          <label>
+            <span>Órgão</span>
+            <select id="agencyFilter"></select>
+          </label>
+          <label>
+            <span>Ano</span>
+            <select id="yearFilter"></select>
+          </label>
+          <label>
+            <span>Busca</span>
+            <input id="searchInput" type="search" placeholder="Município, órgão ou ação" />
+          </label>
+          <button id="resetFilters" type="button">Limpar filtros</button>
+        </section>
+
+        <section class="source-card">
+          <span class="eyebrow">Fontes</span>
+          <p>Planilha de ações, GeoJSON municipal, IBGE/SIDRA e FIRJAN IFDM 2025.</p>
+        </section>
+      </aside>
+
+      <section class="map-panel">
+        <header class="workspace-header">
+          <div>
+            <span class="eyebrow">Mapa interativo</span>
+            <h2>Investimentos por Município · Rondônia</h2>
+            <p>Escolha um município para abrir indicadores e desdobramentos.</p>
+          </div>
+          <div class="status-pill" id="mapStatus">Todos os registros</div>
+        </header>
+
+        <div class="map-card">
+          <svg id="mapSvg" viewBox="0 0 920 620" role="img" aria-label="Mapa dos municípios de Rondônia"></svg>
+          <div class="map-legend" id="legend"></div>
+          <div class="tooltip" id="tooltip" hidden></div>
+        </div>
+
+        <div class="axis-strip" id="globalAxisStrip" aria-label="Eixos de investimento"></div>
+      </section>
+
+      <section class="insight-panel" aria-live="polite">
+        <div class="mobile-grabber"></div>
+        <nav class="mobile-tabs" aria-label="Abas do painel">
+          <button class="tab-button is-active" data-tab="overview" type="button">Geral</button>
+          <button class="tab-button" data-tab="axes" type="button">Eixos</button>
+          <button class="tab-button" data-tab="report" type="button">Relatório</button>
+        </nav>
+
+        <div class="report-actions" aria-label="Exportar e compartilhar relatório">
+          <button class="report-action primary" id="exportPdfButton" type="button" aria-label="Exportar PDF">
+            <span class="desktop-label">Exportar PDF</span><span class="mobile-label">PDF</span>
+          </button>
+          <button class="report-action" id="emailShareButton" type="button" aria-label="Enviar por e-mail">
+            <span class="desktop-label">E-mail</span><span class="mobile-label">E-mail</span>
+          </button>
+          <button class="report-action" id="whatsappShareButton" type="button" aria-label="Enviar por WhatsApp">
+            <span class="desktop-label">WhatsApp</span><span class="mobile-label">WhatsApp</span>
+          </button>
+          <button class="report-action install-action" id="installAppButton" type="button" aria-label="Instalar app">
+            <span class="desktop-label">Instalar app</span><span class="mobile-label">App</span>
+          </button>
+        </div>
+
+        <div class="panel-stack">
+          <section class="panel-view is-active" id="overviewView"></section>
+          <section class="panel-view" id="axesView"></section>
+          <section class="panel-view" id="reportView"></section>
+        </div>
+      </section>
+    </main>
+
+    <script src="./app.js?v=20260613-1" type="module"></script>
+  </body>
+</html>

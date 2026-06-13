@@ -1,0 +1,19 @@
+{
+  "name": "Negócios Inteligentes · BI de Investimentos",
+  "short_name": "Negócios Intel.",
+  "description": "Business Intelligence de investimentos públicos por município.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#0b269a",
+  "theme_color": "#123cc8",
+  "icons": [
+    {
+      "src": "/assets/app-icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
